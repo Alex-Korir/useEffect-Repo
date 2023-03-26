@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./UseEffect.css";
+import "./container.css";
 
 
 const url = 'https://api.github.com/users';
@@ -17,15 +17,17 @@ function UseEffect() {
         data();
       }, []);
      return (
-        <>
+        <section className='whole-section'>
             <h3 className='heading'>Github Users</h3>
             <div className='main-container'>
                 {people.map((person) =>{
                     const {id, login, avatar_url, html_url} = person;
                     return(
                         <div key={id} className='single'>
-                            <img src={avatar_url} alt={login}/>
-                            <div>
+                            <div className='logo'>
+                                <img src={avatar_url} alt={login}/>
+                            </div>
+                            <div className='remove'>
                                 <h5>{login}</h5>
                                 <a href={html_url}>profile</a>
                             </div>
@@ -33,7 +35,7 @@ function UseEffect() {
                     )
                 })}
             </div>
-        </>
+        </section>
      )
   
 }
